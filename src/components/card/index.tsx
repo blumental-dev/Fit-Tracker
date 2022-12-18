@@ -14,6 +14,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import "./index.css";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -42,7 +43,7 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({ children }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, boxShadow: "0px 8px 8px 0px rgba(0,0,0,0.6)" }}>
+    <Card>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
