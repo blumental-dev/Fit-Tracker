@@ -1,51 +1,83 @@
-import ResizableBox from "../../ResizableBox";
-import useDemoConfig from "../../util/useDemoConfig";
 import React from "react";
-import styles from "./index.css";
-import { AxisOptions, Chart } from "react-charts";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import * as faker from "@faker-js/faker";
 
-export default function Line() {
-  const { data, randomizeData } = useDemoConfig({
-    series: 1,
-    dataType: "time",
-  });
+export const options = {
+  responsive: true,
+  // maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: "top" as const,
+    },
+    title: {
+      display: true,
+      text: "Chart.js Line Chart",
+    },
+  },
+};
 
-  console.log({ data });
+export const labels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+];
 
-  const primaryAxis = React.useMemo<
-    AxisOptions<typeof data[number]["data"][number]>
-  >(
-    () => ({
-      getValue: (datum) => datum.primary as unknown as Date,
-    }),
-    []
-  );
-
-  const secondaryAxes = React.useMemo<
-    AxisOptions<typeof data[number]["data"][number]>[]
-  >(
-    () => [
-      {
-        getValue: (datum) => datum.secondary,
-      },
-    ],
-    []
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: "Dataset 1",
+      data: labels.map(() =>
+        faker.faker.datatype.number({ min: -1000, max: 1000 })
+      ),
+      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+      label: "Dataset 2",
+      data: labels.map(() =>
+        faker.faker.datatype.number({ min: -1000, max: 1000 })
+      ),
+      borderColor: "rgb(53, 162, 235)",
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+    },
+  ],
+};
+export default function LineChart() {
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
   );
 
   return (
-    <div className="chart-container">
-      <button onClick={randomizeData}>Randomize Data</button>
-      <br />
-      <br />
-      <ResizableBox resizable={false}>
-        <Chart
-          options={{
-            data,
-            primaryAxis,
-            secondaryAxes,
-          }}
-        />
-      </ResizableBox>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <Line
+        width={400}
+        height={250}
+        options={{ maintainAspectRatio: false }}
+        data={data}
+      />
     </div>
   );
 }
