@@ -9,7 +9,7 @@ const Topics: React.FunctionComponent<any> = () => {
       {arr.map((item, index) => (
         <div
           key={`topic-${index + 1}`}
-          style={{ margin: "1rem", marginBottom: "2.5rem" }}
+          style={{ margin: "1rem 1.5rem 2.5rem" }}
         >
           <CustomCard>
             <LineChart />
