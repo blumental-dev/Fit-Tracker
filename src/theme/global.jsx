@@ -45,7 +45,7 @@ const useGlobalTheme = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const theme = React.useMemo(
-    () => createTheme(getDesignTokens(prefersDarkMode ? "dark" : "dark")),
+    () => createTheme(getDesignTokens(prefersDarkMode ? "dark" : "light")),
     [prefersDarkMode]
   );
 
