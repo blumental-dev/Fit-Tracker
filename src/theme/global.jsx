@@ -3,7 +3,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 
 const getDesignTokens = (mode) => {
-  console.log({ mode });
+  // console.log({ mode });
   return {
     palette: {
       mode,
