@@ -15,8 +15,9 @@ const getDesignTokens = (mode) => {
             divider: "#E7EBF0",
             background: {
               default: "#F5F7FB",
-              paper: "#ffffff99",
+              paper: "#ffffff",
             },
+            drawerBackground: { main: "#ffffff" },
             text: {
               primary: "#6b6b6b",
               secondary: "#000000",
@@ -31,6 +32,7 @@ const getDesignTokens = (mode) => {
               default: "#121212",
               paper: "#12121299",
             },
+            drawerBackground: { main: "#121212" },
             text: {
               primary: "#F3F6F9",
               secondary: "#9BA3AD",
