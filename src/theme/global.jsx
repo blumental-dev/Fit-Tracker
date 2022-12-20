@@ -18,8 +18,8 @@ const getDesignTokens = (mode) => {
             },
             drawerBackground: { main: "#ffffff" },
             text: {
-              primary: "#6b6b6b",
-              secondary: "#000000",
+              primary: "#000000",
+              secondary: "#6b6b6b",
             },
             headerBackground: { main: "#ffffff" },
           }
