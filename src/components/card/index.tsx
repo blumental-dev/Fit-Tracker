@@ -59,8 +59,9 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({ children }) => {
       />
       <CardMedia
         component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
+        height="200"
+        width="150"
+        image="./public/vite.svg"
         alt="Paella dish"
       />
       <CardContent>
