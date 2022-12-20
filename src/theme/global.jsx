@@ -1,9 +1,8 @@
 import { createTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
+import { useDeviceQuery } from "../util/breakpoints";
 
 const getDesignTokens = (mode) => {
-  console.log({ mode });
   return {
     palette: {
       mode,
@@ -14,12 +13,13 @@ const getDesignTokens = (mode) => {
             secondary: { main: "#b3e5fc" },
             divider: "#E7EBF0",
             background: {
-              default: "#ffffff",
-              paper: "#ffffff99",
+              default: "#F5F7FB",
+              paper: "#ffffff",
             },
+            drawerBackground: { main: "#ffffff" },
             text: {
-              primary: "#6b6b6b",
-              secondary: "#000000",
+              primary: "#000000",
+              secondary: "#6b6b6b",
             },
             headerBackground: { main: "#ffffff" },
           }
@@ -31,6 +31,7 @@ const getDesignTokens = (mode) => {
               default: "#121212",
               paper: "#12121299",
             },
+            drawerBackground: { main: "#121212" },
             text: {
               primary: "#F3F6F9",
               secondary: "#9BA3AD",
@@ -42,7 +43,7 @@ const getDesignTokens = (mode) => {
 };
 
 const useGlobalTheme = () => {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const { prefersDarkMode } = useDeviceQuery();
 
   const theme = React.useMemo(
     () => createTheme(getDesignTokens(prefersDarkMode ? "dark" : "light")),
