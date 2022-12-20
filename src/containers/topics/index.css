@@ -1,7 +1,17 @@
 .topics-root {
   padding-top: calc(var(--MuiDocs-header-height));
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .topics-root {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 auto;
+  }
 }

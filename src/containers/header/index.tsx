@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useDrawer } from "../../context/drawerContext";
+import { useDeviceQuery } from "../../util/breakpoints";
 import "./index.css";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -21,7 +22,9 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
-  const { state, dispatch } = useDrawer();
+  const { dispatch } = useDrawer();
+  const { isMobile } = useDeviceQuery();
+  let headerElementSize = isMobile ? "1.5rem" : "2rem";
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -57,7 +60,9 @@ function ResponsiveAppBar() {
               onClick={() => dispatch({ type: "toggle" })}
               sx={{ color: "primary.dark" }}
             >
-              <MenuIcon sx={{ width: "2rem", height: "2rem" }} />
+              <MenuIcon
+                sx={{ width: headerElementSize, height: headerElementSize }}
+              />
             </IconButton>
           </Box>
           <Box
@@ -70,8 +75,8 @@ function ResponsiveAppBar() {
             <FitnessCenterIcon
               sx={{
                 borderRadius: "50%",
-                width: "2rem",
-                height: "2rem",
+                width: headerElementSize,
+                height: headerElementSize,
                 color: "primary.dark",
                 padding: ".2rem",
                 display: { xs: "flex", md: "flex" },
@@ -87,7 +92,7 @@ function ResponsiveAppBar() {
                 mr: 1,
                 display: { xs: "flex", md: "flex" },
                 fontFamily: "monospace",
-                fontSize: "2rem",
+                fontSize: headerElementSize,
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 textDecoration: "none",
@@ -104,8 +109,8 @@ function ResponsiveAppBar() {
                 <AccountCircleIcon
                   sx={{
                     color: "primary.dark",
-                    width: "2rem",
-                    height: "2rem",
+                    width: headerElementSize,
+                    height: headerElementSize,
                   }}
                 />
               </IconButton>
