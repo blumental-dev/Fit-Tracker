@@ -15,10 +15,10 @@ const Topics: React.FunctionComponent<any> = () => {
           style={{
             margin: isMobile
               ? "1rem 1.5rem 2.5rem 1.5rem"
-              : "1rem 4rem 2.5rem 4rem",
+              : "1rem 2.5rem 2.5rem 4rem",
           }}
         >
-          <CustomCard>
+          <CustomCard topicType="Workout">
             <LineChart />
           </CustomCard>
         </div>

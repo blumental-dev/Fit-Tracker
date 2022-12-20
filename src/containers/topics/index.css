@@ -1,10 +1,9 @@
 .topics-root {
   padding-top: calc(var(--MuiDocs-header-height));
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(35vw, 1fr));
+  grid-auto-flow: dense;
   gap: 0px;
-  height: 100%;
 }
 
 @media screen and (max-width: 600px) {
