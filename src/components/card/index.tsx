@@ -13,6 +13,7 @@ import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { TopicType, getAppIcon } from "../../util/appIcons";
 import "./index.css";
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -31,10 +32,14 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 type CustomCardProps = {
+  topicType: TopicType;
   children: React.ReactNode;
 };
 
-const CustomCard: React.FunctionComponent<CustomCardProps> = ({ children }) => {
+const CustomCard: React.FunctionComponent<CustomCardProps> = ({
+  topicType = "Workout",
+  children,
+}) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -46,7 +51,7 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({ children }) => {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "primary.dark" }} aria-label="recipe">
-            R
+            {getAppIcon(topicType)}
           </Avatar>
         }
         action={
@@ -54,8 +59,9 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({ children }) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        titleTypographyProps={{ fontWeight: 600 }}
+        title={topicType}
+        subheader={`Last Edited: September 14, 2016`}
       />
       <CardMedia
         component="img"
