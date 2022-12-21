@@ -37,7 +37,7 @@ type CustomCardProps = {
 };
 
 const CustomCard: React.FunctionComponent<CustomCardProps> = ({
-  topicType = "Workout",
+  topicType,
   children,
 }) => {
   const [expanded, setExpanded] = React.useState(false);
@@ -61,7 +61,7 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({
         }
         titleTypographyProps={{ fontWeight: 600 }}
         title={topicType}
-        subheader={`Last Edited: September 14, 2016`}
+        subheader={`Topic`}
       />
       <CardMedia
         component="img"
