@@ -1,12 +1,19 @@
 import CustomCard from "../../components/card";
 import LineChart from "../../components/LineChart";
+import { TopicTypeEnum } from "../../util/appIcons";
 import { useDeviceQuery } from "../../util/breakpoints";
 import "./index.css";
 
 const Topics: React.FunctionComponent<any> = () => {
   const { isMobile } = useDeviceQuery();
 
-  const arr = [1, 2, 3, 4];
+  const arr = [
+    TopicTypeEnum.WEIGHT,
+    TopicTypeEnum.OBJECTIVE,
+    TopicTypeEnum.NOTE,
+    TopicTypeEnum.WORKOUT,
+  ];
+
   return (
     <div className="topics-root">
       {arr.map((item, index) => (
@@ -18,7 +25,7 @@ const Topics: React.FunctionComponent<any> = () => {
               : "1rem 2.5rem 2.5rem 4rem",
           }}
         >
-          <CustomCard topicType="Workout">
+          <CustomCard topicType={item as TopicTypeEnum}>
             <LineChart />
           </CustomCard>
         </div>
