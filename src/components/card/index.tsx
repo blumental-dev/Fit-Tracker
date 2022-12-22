@@ -16,7 +16,12 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({
   children,
 }) => {
   return (
-    <Card>
+    <Card
+      sx={{
+        backgroundColor: "drawerBackground.main",
+        blockSize: { sm: "15vh", md: "30vh", xl: "40vh" },
+      }}
+    >
       <CustomCardHeader topicType={topicType} />
       <CustomCardContent />
       <CustomCardActions>{children}</CustomCardActions>
