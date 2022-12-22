@@ -96,7 +96,7 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
         >
           <Avatar fullName="Asaf Blumental" title="Admin" />
           <Menu drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
-          <Button variant="outlined" startIcon={<LogoutIcon />}>
+          <Button variant="contained" startIcon={<LogoutIcon />}>
             exit
           </Button>
         </Box>
