@@ -13,8 +13,8 @@ const getDesignTokens = (mode) => {
             secondary: { main: "#b3e5fc" },
             divider: "#E7EBF0",
             background: {
-              default: "#F5F7FB",
-              paper: "#ffffff",
+              default: "#ffffff",
+              paper: "#F5F7FB",
             },
             drawerBackground: { main: "#ffffff" },
             text: {
@@ -22,6 +22,7 @@ const getDesignTokens = (mode) => {
               secondary: "#6b6b6b",
             },
             headerBackground: { main: "#ffffff" },
+            backdrop: { main: "#ced6e5" },
           }
         : {
             // palette values for dark mode
@@ -37,6 +38,7 @@ const getDesignTokens = (mode) => {
               secondary: "#9BA3AD",
             },
             headerBackground: { main: "#121212" },
+            backdrop: { main: "#1e1e1e" },
           }),
     },
   };
