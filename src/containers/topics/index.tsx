@@ -1,12 +1,10 @@
+import { Box } from "@mui/system";
+import React from "react";
 import CustomCard from "../../components/card";
 import LineChart from "../../components/LineChart";
 import { TopicTypeEnum } from "../../util/appIcons";
-import { useDeviceQuery } from "../../util/breakpoints";
-import "./index.css";
 
 const Topics: React.FunctionComponent<any> = () => {
-  const { isMobile } = useDeviceQuery();
-
   const arr = [
     TopicTypeEnum.WEIGHT,
     TopicTypeEnum.OBJECTIVE,
@@ -15,22 +13,55 @@ const Topics: React.FunctionComponent<any> = () => {
   ];
 
   return (
-    <div className="topics-root">
-      {arr.map((item, index) => (
-        <div
-          key={`topic-${index + 1}`}
-          style={{
-            margin: isMobile
-              ? "1rem 1.5rem 2.5rem 1.5rem"
-              : "1rem 2.5rem 2.5rem 4rem",
-          }}
-        >
-          <CustomCard topicType={item as TopicTypeEnum}>
+    <Box
+      sx={{
+        width: "-webkit-fill-available",
+        zIndex: { sm: "20", md: "20", lg: "20" },
+        bgcolor: "drawerBackground.main",
+        borderTopRightRadius: { sm: "none", md: "none", lg: "2rem" },
+        borderBottomRightRadius: { sm: "none", md: "none", lg: "2rem" },
+      }}
+    >
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          borderRadius: { sm: "none", md: "none", lg: "2rem" },
+          padding: {
+            sm: "36px 0 0 0",
+            md: "none",
+            lg: "2rem",
+          },
+          height: "auto",
+          margin: { sm: "0 auto", md: "none", lg: "none" },
+          display: { sm: "flex", md: "grid", lg: "grid" },
+          flexDirection: { sm: "column", md: "none", lg: "none" },
+          alignItems: { sm: "stretch", md: "none", lg: "none" },
+          gridTemplateColumns: {
+            sm: "none",
+            md: "repeat(auto-fill, minmax(20vw, 1fr))",
+            lg: "repeat(auto-fill, minmax(25vw, 1fr))",
+            xl: "repeat(auto-fill, minmax(30vw, 1fr))",
+          },
+          gridAutoRows: {
+            sm: "none",
+            md: "min-content",
+            lg: "min-content",
+            xl: "min-content",
+          },
+          gridAutoFlow: { sm: "none", md: "dense", lg: "dense" },
+          gap: { sm: "none", md: "none", lg: "1rem" },
+        }}
+      >
+        {arr.map((item, index) => (
+          <CustomCard
+            key={`topic-${index + 1}`}
+            topicType={item as TopicTypeEnum}
+          >
             <LineChart />
           </CustomCard>
-        </div>
-      ))}
-    </div>
+        ))}
+      </Box>
+    </Box>
   );
 };
 
