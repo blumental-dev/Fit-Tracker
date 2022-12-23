@@ -42,7 +42,6 @@ const Avatar: React.FunctionComponent<AvatarProps> = ({ fullName, title }) => (
     direction="column"
     sx={{
       alignItems: "center",
-      marginTop: { xs: "5vh", sm: "5vh", md: "15vh", lg: "15vh" },
     }}
     spacing={2}
   >
@@ -58,7 +57,7 @@ const Avatar: React.FunctionComponent<AvatarProps> = ({ fullName, title }) => (
         src="/static/images/avatar/1.jpg"
       />
     </StyledBadge>
-    <Stack direction={"column"} spacing={0}>
+    <Stack direction={"column"} alignItems="center" spacing={0}>
       <Typography
         component="span"
         variant="subtitle1"

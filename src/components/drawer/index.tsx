@@ -73,8 +73,13 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
           sx: {
             height: drawerHeight,
             alignItems: "center",
-            position: { sm: "fixed", md: "relative", lg: "relative" },
-            display: { sm: "auto", md: "flex", lg: "flex" },
+            position: { sm: "fixed", md: "absolute", lg: "absolute" },
+            display: {
+              sm: "auto",
+              md: "grid",
+              lg: "grid",
+              justifyItems: "center",
+            },
             zIndex: "inherit",
             backgroundColor: "drawerBackground.main",
             border: "none",
@@ -89,17 +94,11 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
         hideBackdrop
       >
         <Logo isMobile={isMobile} />
-        <Box
-          sx={{
-            textAlign: "center",
-          }}
-        >
-          <Avatar fullName="Asaf Blumental" title="Admin" />
-          <Menu drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
-          <Button variant="contained" startIcon={<LogoutIcon />}>
-            exit
-          </Button>
-        </Box>
+        <Avatar fullName="Asaf Blumental" title="Admin" />
+        <Menu drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
+        <Button variant="contained" startIcon={<LogoutIcon />}>
+          exit
+        </Button>
       </Drawer>
     </>
   );
