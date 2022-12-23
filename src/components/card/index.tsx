@@ -11,7 +11,7 @@ export type CustomCardProps = {
   children: React.ReactNode;
 };
 
-const CustomCard: React.FunctionComponent<CustomCardProps> = ({
+const BaseCard: React.FunctionComponent<CustomCardProps> = ({
   topicType,
   children,
 }) => {
@@ -20,6 +20,7 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({
       sx={{
         backgroundColor: "drawerBackground.main",
         blockSize: { sm: "15vh", md: "30vh", xl: "40vh" },
+        borderRadius: "1rem",
       }}
     >
       <CustomCardHeader topicType={topicType} />
@@ -28,4 +29,4 @@ const CustomCard: React.FunctionComponent<CustomCardProps> = ({
     </Card>
   );
 };
-export default CustomCard;
+export default BaseCard;
