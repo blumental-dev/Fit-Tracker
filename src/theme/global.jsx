@@ -22,6 +22,7 @@ const getDesignTokens = (mode) => {
               secondary: "#6b6b6b",
             },
             headerBackground: { main: "#ffffff" },
+            topicsBackground: { main: "#F5F7FB" },
             backdrop: { main: "#ced6e5" },
           }
         : {
@@ -38,6 +39,7 @@ const getDesignTokens = (mode) => {
               secondary: "#9BA3AD",
             },
             headerBackground: { main: "#121212" },
+            topicsBackground: { main: "#282828" },
             backdrop: { main: "#1e1e1e" },
           }),
     },
