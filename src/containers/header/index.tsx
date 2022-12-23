@@ -37,6 +37,7 @@ function ResponsiveAppBar() {
   return (
     <AppBar
       sx={{
+        display: { xs: "flex", md: "none", alignItems: "center" },
         backgroundColor: "headerBackground.main",
         backgroundImage: "none",
         color: "primary.dark",

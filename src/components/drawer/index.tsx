@@ -1,18 +1,38 @@
-import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import LogoutIcon from "@mui/icons-material/Logout";
+
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import * as React from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { useDrawer } from "../../context/drawerContext";
+import { useDeviceQuery } from "../../util/breakpoints";
+import Avatar from "../avatar";
+import Logo from "../logo";
+import Menu from "../menu";
+
+const getDrawerWidth = (isMobile: boolean, parentElementWidth: number) =>
+  isMobile ? parentElementWidth / 6 : parentElementWidth / 5.5;
 
 const CustomDrawer: React.FunctionComponent<any> = () => {
   const { state, dispatch } = useDrawer();
+  const { isMobile } = useDeviceQuery();
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const [drawerWidth, setDrawerWidth] = useState<number>();
+  const [drawerHeight, setDrawerHeight] = useState<number>();
+
+  useEffect(() => {
+    if (drawerRef.current) {
+      setDrawerWidth(
+        getDrawerWidth(
+          isMobile,
+          (drawerRef.current.offsetParent as HTMLDivElement).offsetWidth
+        )
+      );
+      setDrawerHeight(drawerRef.current.offsetHeight);
+    }
+  }, [drawerRef, isMobile]);
+
   const toggleDrawer =
     (isOpen: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -33,47 +53,53 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
     return;
   };
 
-  const list = () => (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <br />
-      <br />
-      <Divider />
-      <List>
-        {["Workout Planner", "Weight Tracker", "Objectives"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon sx={{ color: "primary.dark" }}>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          )
-        )}
-      </List>
-      <Divider />
-    </Box>
-  );
-
   return (
     <>
       <Drawer
+        ref={drawerRef}
         anchor="left"
         open={state.isOpen}
+        sx={
+          isMobile
+            ? {}
+            : {
+                zIndex: 10,
+                width: drawerWidth,
+                flexShrink: 0,
+              }
+        }
+        variant={isMobile ? "temporary" : "permanent"}
         PaperProps={{
-          sx: { backgroundColor: "drawerBackground.main" },
+          sx: {
+            height: drawerHeight,
+            alignItems: "center",
+            position: { sm: "fixed", md: "relative", lg: "relative" },
+            display: { sm: "auto", md: "flex", lg: "flex" },
+            zIndex: "inherit",
+            backgroundColor: "drawerBackground.main",
+            border: "none",
+            borderTopLeftRadius: { sm: "unset", md: "unset", lg: "2rem" },
+            borderBottomLeftRadius: { sm: "unset", md: "unset", lg: "2rem" },
+            top: "unset",
+            left: "unset",
+          },
         }}
         onClick={(event) => handleDrawerClick(event)}
         onClose={toggleDrawer(false)}
         hideBackdrop
       >
-        {list()}
+        <Logo isMobile={isMobile} />
+        <Box
+          sx={{
+            textAlign: "center",
+          }}
+        >
+          <Avatar fullName="Asaf Blumental" title="Admin" />
+          <Menu drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
+          <Button variant="contained" startIcon={<LogoutIcon />}>
+            exit
+          </Button>
+        </Box>
       </Drawer>
     </>
   );
