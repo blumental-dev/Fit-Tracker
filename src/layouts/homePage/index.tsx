@@ -10,13 +10,6 @@ const HomePage: React.FunctionComponent<any> = () => {
       sx={{
         display: "flex",
         flexDirection: "row",
-        margin: {
-          xs: "none",
-          sm: "none",
-          md: "0.5rem",
-          lg: "0.5rem",
-          xl: "0.5rem",
-        },
       }}
     >
       <Drawer />
