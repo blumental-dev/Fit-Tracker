@@ -23,11 +23,14 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     >
       <Divider />
       <List>
-        {["Workout Planner", "Weight Tracker", "Objectives"].map(
-          (label, index) => (
-            <MenuItem label={label} index={index} />
-          )
-        )}
+        {[
+          { label: "Workout Planner", selected: true },
+          { label: "Weight Tracker", selected: false },
+          { label: "Objectives", selected: false },
+          { label: "Settings", selected: false },
+        ].map(({ label, selected }, index) => (
+          <MenuItem label={label} index={index} selected={selected} />
+        ))}
       </List>
       <Divider />
     </Box>
