@@ -1,19 +1,18 @@
-import Card from "@mui/material/Card";
+import Card, { CardProps } from "@mui/material/Card";
 import * as React from "react";
-import { TopicType } from "../../util/appIcons";
-import CustomCardActions from "./components/cardActions";
-import CustomCardContent from "./components/cardContent";
-import CustomCardHeader from "./components/cardHeader";
 import "./index.css";
 
-export type CustomCardProps = {
-  topicType: TopicType;
-  children: React.ReactNode;
-};
+export type BaseCardProps = {
+  CardHeader: React.ReactNode;
+  CardContent: React.ReactNode;
+  CardActions: React.ReactNode;
+} & CardProps;
 
-const BaseCard: React.FunctionComponent<CustomCardProps> = ({
-  topicType,
-  children,
+const BaseCard: React.FunctionComponent<BaseCardProps> = ({
+  CardHeader,
+  CardContent,
+  CardActions,
+  sx: customStyle,
 }) => {
   return (
     <Card
@@ -21,11 +20,12 @@ const BaseCard: React.FunctionComponent<CustomCardProps> = ({
         backgroundColor: "drawerBackground.main",
         blockSize: { sm: "15vh", md: "30vh", xl: "40vh" },
         borderRadius: "1rem",
+        ...customStyle,
       }}
     >
-      <CustomCardHeader topicType={topicType} />
-      <CustomCardContent />
-      <CustomCardActions>{children}</CustomCardActions>
+      {CardHeader}
+      {CardContent}
+      {CardActions}
     </Card>
   );
 };
