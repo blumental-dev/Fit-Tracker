@@ -14,8 +14,8 @@ const Logo: React.FunctionComponent<LogoProps> = ({ isMobile }) => {
     return (
       <Box
         sx={{
-          marginTop: "2rem",
-          position: "fixed",
+          position: "relative",
+          top: 0,
           height: "fit-content",
           flexGrow: 1,
           display: { xs: "flex", md: "flex", alignItems: "center" },

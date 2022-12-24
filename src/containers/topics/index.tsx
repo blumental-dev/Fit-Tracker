@@ -1,13 +1,15 @@
 import { Box } from "@mui/system";
 import React from "react";
-import CustomCard from "../../components/card";
-import LineChart from "../../components/LineChart";
+import BaseCard from "../../components/card";
+import withCardVariation from "../../hoc/withCardVariation";
 import { TopicTypeEnum } from "../../util/appIcons";
+
+const HocCard = withCardVariation(BaseCard);
 
 const Topics: React.FunctionComponent<any> = () => {
   const arr = [
-    TopicTypeEnum.WEIGHT,
-    TopicTypeEnum.OBJECTIVE,
+    TopicTypeEnum.INSIGHTS,
+    TopicTypeEnum.GRAPH,
     TopicTypeEnum.NOTE,
     TopicTypeEnum.WORKOUT,
   ];
@@ -24,7 +26,7 @@ const Topics: React.FunctionComponent<any> = () => {
     >
       <Box
         sx={{
-          bgcolor: "background.paper",
+          bgcolor: "topicsBackground.main",
           borderRadius: { sm: "none", md: "none", lg: "2rem" },
           padding: {
             sm: "36px 0 0 0",
@@ -38,27 +40,24 @@ const Topics: React.FunctionComponent<any> = () => {
           alignItems: { sm: "stretch", md: "none", lg: "none" },
           gridTemplateColumns: {
             sm: "none",
-            md: "repeat(auto-fill, minmax(20vw, 1fr))",
-            lg: "repeat(auto-fill, minmax(25vw, 1fr))",
-            xl: "repeat(auto-fill, minmax(30vw, 1fr))",
+            md: "repeat(8, 1fr)",
+            lg: "repeat(8, 1fr)",
+            xl: "repeat(8, 1fr)",
           },
-          gridAutoRows: {
+          gridTemplateRows: {
             sm: "none",
-            md: "min-content",
-            lg: "min-content",
-            xl: "min-content",
+            md: "repeat(8, 1fr)",
+            lg: "repeat(8, 1fr)",
+            xl: "repeat(8, 1fr)",
           },
-          gridAutoFlow: { sm: "none", md: "dense", lg: "dense" },
           gap: { sm: "none", md: "none", lg: "1rem" },
         }}
       >
         {arr.map((item, index) => (
-          <CustomCard
+          <HocCard
             key={`topic-${index + 1}`}
             topicType={item as TopicTypeEnum}
-          >
-            <LineChart />
-          </CustomCard>
+          />
         ))}
       </Box>
     </Box>

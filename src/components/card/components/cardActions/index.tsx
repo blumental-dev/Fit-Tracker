@@ -2,8 +2,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Collapse from "@mui/material/Collapse";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 import React from "react";
@@ -11,10 +9,6 @@ import React from "react";
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
-
-type CustomCardActionsProps = {
-  children: React.ReactNode;
-};
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props;
@@ -27,9 +21,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-const CustomCardActions: React.FunctionComponent<CustomCardActionsProps> = ({
-  children,
-}) => {
+const CustomCardActions: React.FunctionComponent<any> = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -47,7 +39,6 @@ const CustomCardActions: React.FunctionComponent<CustomCardActionsProps> = ({
         </IconButton>
         <ExpandMore
           expand={expanded}
-          disabled={!Boolean(children)}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
@@ -55,9 +46,6 @@ const CustomCardActions: React.FunctionComponent<CustomCardActionsProps> = ({
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
-      <Collapse in={expanded && Boolean(children)} timeout="auto" unmountOnExit>
-        <CardContent>{children}</CardContent>
-      </Collapse>
     </>
   );
 };

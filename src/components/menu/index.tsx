@@ -15,7 +15,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
     <Box
       sx={{
         width: drawerWidth,
-        padding: { sm: "unset", md: "2rem", lg: "2rem" },
+        padding: { sm: "unset", md: "0 2rem 0 2rem", lg: "0 2rem 0 2rem" },
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
@@ -29,7 +29,12 @@ const Menu: React.FunctionComponent<MenuProps> = ({
           { label: "Objectives", selected: false },
           { label: "Settings", selected: false },
         ].map(({ label, selected }, index) => (
-          <MenuItem label={label} index={index} selected={selected} />
+          <MenuItem
+            key={`${label}-${index}`}
+            label={label}
+            index={index}
+            selected={selected}
+          />
         ))}
       </List>
       <Divider />

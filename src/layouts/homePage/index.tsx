@@ -11,11 +11,10 @@ const HomePage: React.FunctionComponent<any> = () => {
         display: "flex",
         flexDirection: "row",
         margin: {
-          xs: "none",
           sm: "none",
-          md: "0.5rem",
-          lg: "0.5rem",
-          xl: "0.5rem",
+          md: "0 2rem 0 2rem",
+          lg: "0 2rem 0 2rem",
+          xl: "0 2rem 0 2rem",
         },
       }}
     >
