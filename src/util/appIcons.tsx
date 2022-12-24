@@ -8,19 +8,25 @@ export enum TopicTypeEnum {
   OBJECTIVE = "Objectives",
   NOTE = "Notes",
   WORKOUT = "Workouts",
+  INSIGHTS = "Insights",
+  GRAPH = "Graph",
 }
 
 export type TopicType =
   | TopicTypeEnum.WEIGHT
   | TopicTypeEnum.OBJECTIVE
   | TopicTypeEnum.NOTE
-  | TopicTypeEnum.WORKOUT;
+  | TopicTypeEnum.WORKOUT
+  | TopicTypeEnum.INSIGHTS
+  | TopicTypeEnum.GRAPH;
 
 const icons = {
   [TopicTypeEnum.WEIGHT]: <WeightIcon />,
   [TopicTypeEnum.OBJECTIVE]: <ObjectiveIcon />,
   [TopicTypeEnum.NOTE]: <NoteIcon />,
   [TopicTypeEnum.WORKOUT]: <WorkoutIcon />,
+  [TopicTypeEnum.INSIGHTS]: <NoteIcon />,
+  [TopicTypeEnum.GRAPH]: <WorkoutIcon />,
 };
 
 export const getAppIcon = (type: TopicType): React.ReactElement => icons[type];
