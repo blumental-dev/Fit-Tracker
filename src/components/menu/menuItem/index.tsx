@@ -7,18 +7,16 @@ import {
   ListItemText,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { MenuListProps } from "..";
 
-type MenuItemProps = {
-  label: string;
-  path: string;
-  index: number;
-  selected: boolean;
+type MenuItemProps = MenuListProps & {
   onSelect: (index: number) => void;
 };
 const MenuItem: React.FunctionComponent<MenuItemProps> = ({
   label,
+  icon,
   path,
-  index,
+  id: index,
   selected,
   onSelect,
 }) => {
@@ -40,9 +38,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = ({
             margin: "1rem 0 1rem 0",
           }}
         >
-          <ListItemIcon sx={{ color: "primary.dark" }}>
-            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-          </ListItemIcon>
+          <ListItemIcon sx={{ color: "primary.dark" }}>{icon}</ListItemIcon>
           <ListItemText primary={label} />
         </ListItemButton>
       </ListItem>
