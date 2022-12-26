@@ -10,6 +10,7 @@ export enum TopicTypeEnum {
   WORKOUT = "Workouts",
   INSIGHTS = "Insights",
   GRAPH = "Graph",
+  SETTINGS = "Settings",
 }
 
 export type TopicType =

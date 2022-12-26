@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Topics from "./containers/topics";
+import GridView from "./containers/topics";
+import { TopicType, TopicTypeEnum } from "./util/appIcons";
+
+const arr = [TopicTypeEnum.INSIGHTS, TopicTypeEnum.GRAPH] as TopicType[];
 
 const router = createBrowserRouter([
   {
@@ -14,7 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         index: true,
-        element: <Topics />,
+        element: <GridView content={arr} />,
       },
       {
         path: "weight/",
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "settings/",
-        element: <>Settings Page</>,
+        element: <GridView content={TopicTypeEnum.SETTINGS as TopicType} />,
       },
     ],
   },
