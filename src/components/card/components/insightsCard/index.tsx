@@ -48,7 +48,6 @@ export default function getInsightsCard(): BaseCardProps & CardProps {
     CardActions: <InsightsActions />,
     sx: {
       backgroundColor: "backdrop.main",
-      blockSize: { sm: "5vh", md: "10vh", xl: "80vh" },
       gridArea: "1 / 1 / 9 / 3",
     },
   };

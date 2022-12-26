@@ -66,25 +66,32 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
                 zIndex: 10,
                 width: drawerWidth,
                 flexShrink: 0,
+                position: "relative",
               }
         }
         variant={isMobile ? "temporary" : "permanent"}
         PaperProps={{
           sx: {
-            height: drawerHeight,
+            height: "-webkit-fill-available;",
             alignItems: "center",
-            position: { sm: "fixed", md: "absolute", lg: "absolute" },
+            position: {
+              sm: "fixed",
+              md: "absolute",
+              lg: "absolute",
+              xl: "absolute",
+            },
             display: {
               sm: "auto",
               md: "grid",
               lg: "grid",
+              xl: "grid",
               justifyItems: "center",
             },
             zIndex: "inherit",
             backgroundColor: "drawerBackground.main",
             border: "none",
-            borderTopLeftRadius: { sm: "unset", md: "unset", lg: "2rem" },
-            borderBottomLeftRadius: { sm: "unset", md: "unset", lg: "2rem" },
+            borderTopLeftRadius: { sm: "unset", md: "2rem", lg: "2rem" },
+            borderBottomLeftRadius: { sm: "unset", md: "2rem", lg: "2rem" },
             top: "unset",
             left: "unset",
           },
