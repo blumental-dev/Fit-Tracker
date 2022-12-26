@@ -1,9 +1,6 @@
-import LogoutIcon from "@mui/icons-material/Logout";
-
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
-
+import LogoutIcon from "@mui/icons-material/PowerSettingsNew";
 import React, { useEffect, useRef, useState } from "react";
 import { useDrawer } from "../../context/drawerContext";
 import { useDeviceQuery } from "../../util/breakpoints";
@@ -19,7 +16,6 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
   const { isMobile } = useDeviceQuery();
   const drawerRef = useRef<HTMLDivElement>(null);
   const [drawerWidth, setDrawerWidth] = useState<number>();
-  const [drawerHeight, setDrawerHeight] = useState<number>();
 
   useEffect(() => {
     if (drawerRef.current) {
@@ -29,7 +25,6 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
           (drawerRef.current.offsetParent as HTMLDivElement).offsetWidth
         )
       );
-      setDrawerHeight(drawerRef.current.offsetHeight);
     }
   }, [drawerRef, isMobile]);
 
@@ -104,7 +99,7 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
         <Avatar fullName="Asaf Blumental" title="Admin" />
         <Menu drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
         <Button variant="contained" startIcon={<LogoutIcon />}>
-          exit
+          Logout
         </Button>
       </Drawer>
     </>
