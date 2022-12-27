@@ -1,9 +1,6 @@
-import LogoutIcon from "@mui/icons-material/Logout";
-
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
-
+import LogoutIcon from "@mui/icons-material/PowerSettingsNew";
 import React, { useEffect, useRef, useState } from "react";
 import { useDrawer } from "../../context/drawerContext";
 import { useDeviceQuery } from "../../util/breakpoints";
@@ -19,7 +16,6 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
   const { isMobile } = useDeviceQuery();
   const drawerRef = useRef<HTMLDivElement>(null);
   const [drawerWidth, setDrawerWidth] = useState<number>();
-  const [drawerHeight, setDrawerHeight] = useState<number>();
 
   useEffect(() => {
     if (drawerRef.current) {
@@ -29,7 +25,6 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
           (drawerRef.current.offsetParent as HTMLDivElement).offsetWidth
         )
       );
-      setDrawerHeight(drawerRef.current.offsetHeight);
     }
   }, [drawerRef, isMobile]);
 
@@ -66,25 +61,32 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
                 zIndex: 10,
                 width: drawerWidth,
                 flexShrink: 0,
+                position: "relative",
               }
         }
         variant={isMobile ? "temporary" : "permanent"}
         PaperProps={{
           sx: {
-            height: drawerHeight,
+            height: "-webkit-fill-available;",
             alignItems: "center",
-            position: { sm: "fixed", md: "absolute", lg: "absolute" },
+            position: {
+              sm: "fixed",
+              md: "absolute",
+              lg: "absolute",
+              xl: "absolute",
+            },
             display: {
               sm: "auto",
               md: "grid",
               lg: "grid",
+              xl: "grid",
               justifyItems: "center",
             },
             zIndex: "inherit",
             backgroundColor: "drawerBackground.main",
             border: "none",
-            borderTopLeftRadius: { sm: "unset", md: "unset", lg: "2rem" },
-            borderBottomLeftRadius: { sm: "unset", md: "unset", lg: "2rem" },
+            borderTopLeftRadius: { sm: "unset", md: "2rem", lg: "2rem" },
+            borderBottomLeftRadius: { sm: "unset", md: "2rem", lg: "2rem" },
             top: "unset",
             left: "unset",
           },
@@ -97,7 +99,7 @@ const CustomDrawer: React.FunctionComponent<any> = () => {
         <Avatar fullName="Asaf Blumental" title="Admin" />
         <Menu drawerWidth={drawerWidth} toggleDrawer={toggleDrawer} />
         <Button variant="contained" startIcon={<LogoutIcon />}>
-          exit
+          Logout
         </Button>
       </Drawer>
     </>

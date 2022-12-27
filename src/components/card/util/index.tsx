@@ -3,6 +3,7 @@ import { BaseCardProps } from "..";
 import { TopicType, TopicTypeEnum } from "../../../util/appIcons";
 import getGraphCard from "../components/graphCard";
 import getInsightsCard from "../components/insightsCard";
+import getSettingsCard from "../components/settingsCard";
 
 const cardDictionary = {
   [TopicTypeEnum.INSIGHTS]: getInsightsCard,
@@ -11,10 +12,9 @@ const cardDictionary = {
   [TopicTypeEnum.OBJECTIVE]: getGraphCard,
   [TopicTypeEnum.WEIGHT]: getGraphCard,
   [TopicTypeEnum.WORKOUT]: getGraphCard,
+  [TopicTypeEnum.SETTINGS]: getSettingsCard,
 };
 function getCardElements(topicType: TopicType): BaseCardProps & CardProps {
-  const res = cardDictionary[topicType]();
-  console.log({ topicType, res });
   return cardDictionary[topicType]();
 }
 

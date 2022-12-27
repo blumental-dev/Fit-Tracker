@@ -41,7 +41,6 @@ export default function getGraphCard(): BaseCardProps & CardProps {
     sx: {
       backgroundColor: "#95CFD9",
       color: "background.default",
-      blockSize: { sm: "5vh", md: "10vh", xl: "80vh" },
       gridArea: "1 / 3 / 9 / 9",
     },
   };
