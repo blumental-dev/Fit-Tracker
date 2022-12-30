@@ -23,6 +23,11 @@ const getDesignTokens = (mode) => {
             },
             headerBackground: { main: "#ffffff" },
             topicsBackground: { main: "#F5F7FB" },
+            tableBackground: {
+              main: "#f5f7fb52",
+              firstCell: "#529EED",
+              firstCellRightBorder: "#3a76b4",
+            },
             backdrop: { main: "#ced6e5" },
           }
         : {
@@ -40,6 +45,11 @@ const getDesignTokens = (mode) => {
             },
             headerBackground: { main: "#121212" },
             topicsBackground: { main: "#282828" },
+            tableBackground: {
+              main: "#12121299",
+              firstCell: "#133a61",
+              firstCellRightBorder: "#0c2743",
+            },
             backdrop: { main: "#1e1e1e" },
           }),
     },
