@@ -24,8 +24,10 @@ const router = createBrowserRouter([
         element: <>ADASDADSD</>,
       },
       {
-        path: "weight/",
-        element: <>ADASDADSD</>,
+        path: "exercises-backlog/",
+        element: (
+          <GridView content={TopicTypeEnum.EXERCISE_BACKLOG as TopicType} />
+        ),
       },
       {
         path: "settings/",

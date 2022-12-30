@@ -1,9 +1,12 @@
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
+import TrackerIcon from "@mui/icons-material/TrackChanges";
+import ExerciseIcon from "@mui/icons-material/FitnessCenter";
 import { Divider, List } from "@mui/material";
 import Box from "@mui/material/Box";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuItem from "./menuItem";
+import { useLocation } from "react-router";
 type MenuProps = {
   drawerWidth: number | undefined;
   toggleDrawer: (val: boolean) => void;
@@ -19,26 +22,27 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   drawerWidth,
   toggleDrawer,
 }) => {
+  const location = useLocation();
   const [menuList, setMenuList] = useState<MenuListProps[]>([
     {
       id: 1,
       icon: <DashboardIcon />,
-      label: "Dashboard",
+      label: "My Activity",
       path: "/",
-      selected: true,
+      selected: false,
     },
     {
       id: 2,
-      icon: <DashboardIcon />,
-      label: "Weight Tracker",
+      icon: <TrackerIcon />,
+      label: "Workout Tracker",
       path: "/weight",
       selected: false,
     },
     {
       id: 3,
-      icon: <DashboardIcon />,
-      label: "Objectives",
-      path: "/weight",
+      icon: <ExerciseIcon />,
+      label: "Exercise Backlog",
+      path: "/exercises-backlog",
       selected: false,
     },
     {
@@ -49,6 +53,15 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       selected: false,
     },
   ]);
+
+  useEffect(() => {
+    const selectedItemIndex = findSelectedItemIndexViaPathName();
+    selectedItemIndex && changeSelectedMenuItem(selectedItemIndex);
+  }, [location.pathname]);
+
+  const findSelectedItemIndexViaPathName = () => {
+    return menuList.find((item) => item.path === location.pathname)?.id;
+  };
 
   const changeSelectedMenuItem = (index: number) =>
     setMenuList((prevState) => {

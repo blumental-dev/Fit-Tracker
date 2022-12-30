@@ -1,18 +1,20 @@
 import { CardProps } from "@mui/material/Card/Card";
 import { BaseCardProps } from "..";
 import { TopicType, TopicTypeEnum } from "../../../util/appIcons";
+import getEvercisesCard from "../components/exercisesCard";
 import getGraphCard from "../components/graphCard";
 import getInsightsCard from "../components/insightsCard";
 import getSettingsCard from "../components/settingsCard";
-
+const cardTypeEnum = { ...TopicTypeEnum };
 const cardDictionary = {
-  [TopicTypeEnum.INSIGHTS]: getInsightsCard,
-  [TopicTypeEnum.GRAPH]: getGraphCard,
-  [TopicTypeEnum.NOTE]: getGraphCard,
-  [TopicTypeEnum.OBJECTIVE]: getGraphCard,
-  [TopicTypeEnum.WEIGHT]: getGraphCard,
-  [TopicTypeEnum.WORKOUT]: getGraphCard,
-  [TopicTypeEnum.SETTINGS]: getSettingsCard,
+  [cardTypeEnum.INSIGHTS]: getInsightsCard,
+  [cardTypeEnum.GRAPH]: getGraphCard,
+  [cardTypeEnum.NOTE]: getGraphCard,
+  [cardTypeEnum.OBJECTIVE]: getGraphCard,
+  [cardTypeEnum.WEIGHT]: getGraphCard,
+  [cardTypeEnum.WORKOUT]: getGraphCard,
+  [cardTypeEnum.SETTINGS]: getSettingsCard,
+  [cardTypeEnum.EXERCISE_BACKLOG]: getEvercisesCard,
 };
 function getCardElements(topicType: TopicType): BaseCardProps & CardProps {
   return cardDictionary[topicType]();
