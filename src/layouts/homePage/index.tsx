@@ -17,7 +17,13 @@ const HomePage: React.FunctionComponent<any> = () => {
           lg: "2rem 2rem 2rem 2rem",
           xl: "2rem 2rem 2rem 2rem",
         },
-        minHeight: "90vh",
+        minHeight: {
+          xs: "100vh",
+          sm: "100vh",
+          md: "90vh",
+          lg: "90vh",
+          xl: "90vh",
+        },
         minWidth: "90vh",
       }}
     >
@@ -26,7 +32,13 @@ const HomePage: React.FunctionComponent<any> = () => {
       <Box
         id="detail"
         sx={{
-          width: "-webkit-fill-available",
+          width: {
+            xs: "100vw",
+            sm: "100vw",
+            lg: "-webkit-fill-available",
+            xl: "-webkit-fill-available",
+          },
+          marginTop: { xs: "5vh", sm: "5vh", lg: "unset", xl: "unset" },
           zIndex: { sm: "20", md: "20", lg: "20", lx: "20" },
           bgcolor: "drawerBackground.main",
           borderTopRightRadius: { sm: "none", md: "2rem", lg: "2rem" },
@@ -38,7 +50,8 @@ const HomePage: React.FunctionComponent<any> = () => {
             bgcolor: "topicsBackground.main",
             borderRadius: { sm: "none", md: "2rem", lg: "2rem", xl: "2rem" },
             padding: {
-              sm: "36px 0 0 0",
+              xs: "2rem",
+              sm: "2rem",
               md: "2rem",
               lg: "2rem",
               xl: "2rem",
