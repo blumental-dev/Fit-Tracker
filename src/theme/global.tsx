@@ -1,8 +1,9 @@
-import { createTheme } from "@mui/material/styles";
+import { PaletteMode } from "@mui/material";
+import { createTheme, ThemeOptions } from "@mui/material/styles";
 import React from "react";
 import { useDeviceQuery } from "../util/breakpoints";
 
-const getDesignTokens = (mode) => {
+const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
   return {
     palette: {
       mode,
@@ -53,14 +54,34 @@ const getDesignTokens = (mode) => {
             backdrop: { main: "#1e1e1e" },
           }),
     },
+    components: {
+      // Name of the component
+      MuiCssBaseline: {
+        styleOverrides: () => `
+          *::-webkit-scrollbar {
+            width: 0.6rem;
+          }
+          *::-webkit-scrollbar-track: {
+            border-radius: 2rem;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.00);
+            
+          }
+          *::-webkit-scrollbar-thumb {
+            border-radius: 2rem;
+            // backgroundColor: rgba(0,0,0,.1);
+            // outline: 1px solid slategrey;
+            background-color: ${mode === "dark" ? "#12121299" : "#234364"}
+          }
+        `,
+      },
+    },
   };
 };
 
 const useGlobalTheme = () => {
   const { prefersDarkMode } = useDeviceQuery();
-
   const theme = React.useMemo(
-    () => createTheme(getDesignTokens(prefersDarkMode ? "dark" : "light")),
+    () => createTheme(getDesignTokens(prefersDarkMode ? "dark" : "dark")),
     [prefersDarkMode]
   );
 
