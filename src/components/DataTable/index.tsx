@@ -1,13 +1,13 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import { Box, IconButton } from "@mui/material";
 import {
   DataGrid,
   GridColDef,
-  GridValueGetterParams,
   GridColumnVisibilityModel,
   GridRenderCellParams,
+  GridValueGetterParams,
 } from "@mui/x-data-grid";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import CustomRating from "../Rating";
 
 const columns: GridColDef[] = [
@@ -34,6 +34,7 @@ const columns: GridColDef[] = [
     sortable: false,
     width: 200,
     align: "center",
+    disableColumnMenu: true,
     valueGetter: (params: GridValueGetterParams) => `${params.row.id || ""}`,
     renderCell: () => (
       <Box
@@ -80,7 +81,6 @@ export default function DataTable() {
   return (
     <Box
       sx={{
-        // width: "100%",
         height: "65vh",
       }}
     >
@@ -105,17 +105,15 @@ export default function DataTable() {
               display: "none",
             },
           },
-
           { border: "unset", backgroundColor: "tableBackground.main" },
         ]}
-        // showColumnRightBorder={true}
-        // showCellRightBorder
         rows={rows}
         columns={columns}
         columnVisibilityModel={excludedColumns}
+        hideFooter
+        hideFooterSelectedRowCount
         disableColumnSelector
         disableColumnFilter
-        hideFooter
       />
     </Box>
   );
