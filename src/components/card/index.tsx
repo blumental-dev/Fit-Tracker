@@ -18,7 +18,10 @@ const BaseCard: React.FunctionComponent<BaseCardProps> = ({
     <Card
       sx={{
         backgroundColor: "drawerBackground.main",
-        borderRadius: "1rem",
+        overflow: "auto",
+        borderRadius: "2rem",
+        maxHeight: "90vh",
+        maxWidth: "78vw",
         ...customStyle,
       }}
     >
