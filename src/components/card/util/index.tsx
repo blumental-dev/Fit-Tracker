@@ -1,7 +1,7 @@
 import { CardProps } from "@mui/material/Card/Card";
 import { BaseCardProps } from "..";
 import { TopicType, TopicTypeEnum } from "../../../util/appIcons";
-import getEvercisesCard from "../components/exercisesCard";
+import getEvercisesCard from "../components/exerciseBacklogCard";
 import getGraphCard from "../components/graphCard";
 import getInsightsCard from "../components/insightsCard";
 import getSettingsCard from "../components/settingsCard";
