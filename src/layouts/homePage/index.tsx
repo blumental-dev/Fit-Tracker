@@ -45,39 +45,7 @@ const HomePage: React.FunctionComponent<any> = () => {
           borderBottomRightRadius: { sm: "none", md: "2rem", lg: "2rem" },
         }}
       >
-        <Box
-          sx={{
-            bgcolor: "topicsBackground.main",
-            borderRadius: { sm: "none", md: "2rem", lg: "2rem", xl: "2rem" },
-            padding: {
-              xs: "2rem",
-              sm: "2rem",
-              md: "2rem",
-              lg: "2rem",
-              xl: "2rem",
-            },
-            height: "100%",
-            margin: { sm: "0 auto", md: "none", lg: "none" },
-            display: { sm: "flex", md: "grid", lg: "grid" },
-            flexDirection: { sm: "column", md: "none", lg: "none" },
-            alignItems: { sm: "stretch", md: "none", lg: "none" },
-            gridTemplateColumns: {
-              sm: "none",
-              md: "repeat(8, 1fr)",
-              lg: "repeat(8, 1fr)",
-              xl: "repeat(8, 1fr)",
-            },
-            gridTemplateRows: {
-              sm: "none",
-              md: "repeat(8, 1fr)",
-              lg: "repeat(8, 1fr)",
-              xl: "repeat(8, 1fr)",
-            },
-            gap: { sm: "none", md: "none", lg: "1rem" },
-          }}
-        >
-          <Outlet />
-        </Box>
+        <Outlet />
       </Box>
     </Box>
   );

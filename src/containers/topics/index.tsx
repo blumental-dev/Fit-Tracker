@@ -10,8 +10,6 @@ type GridViewProps = {
 };
 
 const GridView: React.FunctionComponent<GridViewProps> = ({ content }) => {
-  const arr = [TopicTypeEnum.INSIGHTS, TopicTypeEnum.GRAPH] as TopicType[];
-
   return (
     <>
       {Array.isArray(content) ? (
