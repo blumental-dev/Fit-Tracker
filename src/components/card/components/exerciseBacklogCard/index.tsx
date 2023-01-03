@@ -1,11 +1,10 @@
 import AddIcon from "@mui/icons-material/AddBox";
 import { CardProps } from "@mui/material";
-import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import IconButton from "@mui/material/IconButton";
+import { Outlet } from "react-router-dom";
 import { BaseCardProps } from "../..";
-import ExerciseCard from "./components/exerciseCard";
 
 const ExercisesHeader = (): JSX.Element => (
   <CardHeader
@@ -21,32 +20,7 @@ const ExercisesHeader = (): JSX.Element => (
 );
 const ExercisesContent = (): JSX.Element => (
   <CardContent sx={{ overflowY: "scroll", color: "background.default" }}>
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      {[1, 2, 3].map(() => (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          {[1, 2, 3, 4, 5, 6].map(() => (
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <ExerciseCard />
-            </Box>
-          ))}
-        </Box>
-      ))}
-    </Box>
+    <Outlet />
   </CardContent>
 );
 const ExercisesActions = (): JSX.Element => <></>;

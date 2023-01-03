@@ -5,9 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import GridView from "./containers/topics";
 import { TopicType, TopicTypeEnum } from "./util/appIcons";
+import withCatalogType from "./hoc/withCatalogType";
+import BaseCatalog from "./components/card/components/exerciseBacklogCard/components/Catalog";
+import { BodyPartEnum } from "./util/enums";
 
 const arr = [TopicTypeEnum.INSIGHTS, TopicTypeEnum.GRAPH] as TopicType[];
 
+const EnhancedCatalog = withCatalogType(BaseCatalog);
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +32,29 @@ const router = createBrowserRouter([
         element: (
           <GridView content={TopicTypeEnum.EXERCISE_BACKLOG as TopicType} />
         ),
+        children: [
+          {
+            path: "/exercises-backlog/back",
+            index: true,
+            element: <EnhancedCatalog BodyPartType={BodyPartEnum.BACK} />,
+          },
+          {
+            path: "/exercises-backlog/chest",
+            element: <EnhancedCatalog BodyPartType={BodyPartEnum.CHEST} />,
+          },
+          {
+            path: "/exercises-backlog/legs",
+            element: <EnhancedCatalog BodyPartType={BodyPartEnum.LEGS} />,
+          },
+          {
+            path: "/exercises-backlog/shoulder",
+            element: <EnhancedCatalog BodyPartType={BodyPartEnum.SHOULDERS} />,
+          },
+          {
+            path: "/exercises-backlog/arms",
+            element: <EnhancedCatalog BodyPartType={BodyPartEnum.ARMS} />,
+          },
+        ],
       },
       {
         path: "settings/",

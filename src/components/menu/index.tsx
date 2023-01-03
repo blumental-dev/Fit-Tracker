@@ -42,7 +42,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
       id: 3,
       icon: <ExerciseIcon />,
       label: "Exercise Backlog",
-      path: "/exercises-backlog",
+      path: "/exercises-backlog/back",
       selected: false,
     },
     {
