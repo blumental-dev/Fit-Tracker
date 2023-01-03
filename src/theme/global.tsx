@@ -68,9 +68,8 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
           }
           *::-webkit-scrollbar-thumb {
             border-radius: 2rem;
-            // backgroundColor: rgba(0,0,0,.1);
-            // outline: 1px solid slategrey;
-            background-color: ${mode === "dark" ? "#12121299" : "#234364"}
+            background-color: ${mode === "dark" ? "#12121299" : "#234364"};
+            background-color: unset;
           }
         `,
       },
