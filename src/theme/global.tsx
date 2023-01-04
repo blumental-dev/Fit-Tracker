@@ -73,6 +73,23 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => {
           }
         `,
       },
+      MuiTabs: {
+        styleOverrides: {
+          indicator: {
+            backgroundColor: "#F3F6F9",
+          },
+        },
+      },
+      MuiTab: {
+        styleOverrides: {
+          root: {
+            color: "black",
+            "&.Mui-selected": {
+              color: "#F3F6F9",
+            },
+          },
+        },
+      },
     },
   };
 };
