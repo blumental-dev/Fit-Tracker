@@ -6,7 +6,7 @@ export type BaseCardProps = {
   CardHeader: React.ReactNode;
   CardContent: React.ReactNode;
   CardActions: React.ReactNode;
-} & CardProps;
+} & Pick<CardProps, "sx">;
 
 const BaseCard: React.FunctionComponent<BaseCardProps> = ({
   CardHeader,

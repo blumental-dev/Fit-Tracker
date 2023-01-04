@@ -1,14 +1,15 @@
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Avatar from "@mui/material/Avatar";
-import CardHeader from "@mui/material/CardHeader";
+import CardHeader, { CardHeaderProps } from "@mui/material/CardHeader";
 import IconButton from "@mui/material/IconButton";
 import { getAppIcon, TopicType } from "../../../../util/appIcons";
 
 type CustomCardHeaderProps = {
   topicType: TopicType;
-};
+} & Pick<CardHeaderProps, "avatar" | "action" | "title" | "subheader" | "sx">;
 const CustomCardHeader: React.FunctionComponent<CustomCardHeaderProps> = ({
   topicType,
+  ...rest
 }) => {
   return (
     <CardHeader
@@ -22,7 +23,6 @@ const CustomCardHeader: React.FunctionComponent<CustomCardHeaderProps> = ({
           <MoreVertIcon />
         </IconButton>
       }
-      titleTypographyProps={{ fontWeight: 600 }}
       title={topicType}
       subheader={`Topic`}
     />

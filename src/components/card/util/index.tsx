@@ -16,7 +16,7 @@ const cardDictionary = {
   [cardTypeEnum.SETTINGS]: getSettingsCard,
   [cardTypeEnum.EXERCISE_BACKLOG]: getExercisesBacklogCard,
 };
-function getCardElements(topicType: TopicType): BaseCardProps & CardProps {
+function getCardElements(topicType: TopicType): BaseCardProps {
   return cardDictionary[topicType]();
 }
 
