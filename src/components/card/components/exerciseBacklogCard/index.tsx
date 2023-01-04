@@ -5,6 +5,7 @@ import CardHeader from "@mui/material/CardHeader";
 import IconButton from "@mui/material/IconButton";
 import { Outlet } from "react-router-dom";
 import { BaseCardProps } from "../..";
+import BacklogHeader from "./components/Header";
 
 const ExercisesHeader = (): JSX.Element => (
   <CardHeader
@@ -13,9 +14,8 @@ const ExercisesHeader = (): JSX.Element => (
         <AddIcon />
       </IconButton>
     }
-    titleTypographyProps={{ fontWeight: 600, color: "text.primary" }}
-    subheaderTypographyProps={{ color: "background.default" }}
-    title={"All Exercises"}
+    title={<BacklogHeader />}
+    sx={{ marginLeft: "2rem" }}
   />
 );
 const ExercisesContent = (): JSX.Element => (
@@ -25,7 +25,7 @@ const ExercisesContent = (): JSX.Element => (
 );
 const ExercisesActions = (): JSX.Element => <></>;
 
-export default function getExercisesCard(): BaseCardProps & CardProps {
+export default function getExercisesBacklogCard(): BaseCardProps & CardProps {
   return {
     CardHeader: <ExercisesHeader />,
     CardContent: <ExercisesContent />,
