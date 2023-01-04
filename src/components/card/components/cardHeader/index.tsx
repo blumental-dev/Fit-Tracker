@@ -9,7 +9,6 @@ type CustomCardHeaderProps = {
 } & Pick<CardHeaderProps, "avatar" | "action" | "title" | "subheader" | "sx">;
 const CustomCardHeader: React.FunctionComponent<CustomCardHeaderProps> = ({
   topicType,
-  ...rest
 }) => {
   return (
     <CardHeader

@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 import { BaseCardProps } from "../..";
 import BacklogHeader from "./components/Header";
 
-const ExercisesHeader = (): JSX.Element => (
+const ExercisesBacklogHeader = (): JSX.Element => (
   <CardHeader
     action={
       <IconButton aria-label="exercises">
@@ -18,18 +18,18 @@ const ExercisesHeader = (): JSX.Element => (
     sx={{ marginLeft: "2rem" }}
   />
 );
-const ExercisesContent = (): JSX.Element => (
+const ExercisesBacklogContent = (): JSX.Element => (
   <CardContent sx={{ overflowY: "scroll", color: "background.default" }}>
     <Outlet />
   </CardContent>
 );
-const ExercisesActions = (): JSX.Element => <></>;
+const ExercisesBacklogActions = (): JSX.Element => <></>;
 
-export default function getExercisesBacklogCard(): BaseCardProps & CardProps {
+export default function getExercisesBacklogCard(): BaseCardProps {
   return {
-    CardHeader: <ExercisesHeader />,
-    CardContent: <ExercisesContent />,
-    CardActions: <ExercisesActions />,
+    CardHeader: <ExercisesBacklogHeader />,
+    CardContent: <ExercisesBacklogContent />,
+    CardActions: <ExercisesBacklogActions />,
     sx: {
       backgroundColor: "primary.dark",
       color: "background.default",
