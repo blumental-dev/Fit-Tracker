@@ -34,24 +34,24 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "/exercises-backlog/back",
+            path: `/exercises-backlog/${BodyPartEnum.BACK}`,
             index: true,
             element: <EnhancedCatalog BodyPartType={BodyPartEnum.BACK} />,
           },
           {
-            path: "/exercises-backlog/chest",
+            path: `/exercises-backlog/${BodyPartEnum.CHEST}`,
             element: <EnhancedCatalog BodyPartType={BodyPartEnum.CHEST} />,
           },
           {
-            path: "/exercises-backlog/legs",
+            path: `/exercises-backlog/${BodyPartEnum.LEGS}`,
             element: <EnhancedCatalog BodyPartType={BodyPartEnum.LEGS} />,
           },
           {
-            path: "/exercises-backlog/shoulder",
+            path: `/exercises-backlog/${BodyPartEnum.SHOULDERS}`,
             element: <EnhancedCatalog BodyPartType={BodyPartEnum.SHOULDERS} />,
           },
           {
-            path: "/exercises-backlog/arms",
+            path: `/exercises-backlog/${BodyPartEnum.ARMS}`,
             element: <EnhancedCatalog BodyPartType={BodyPartEnum.ARMS} />,
           },
         ],

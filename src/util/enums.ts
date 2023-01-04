@@ -1,9 +1,9 @@
 export enum BodyPartEnum {
-  BACK = "Back",
-  CHEST = "Chest",
-  SHOULDERS = "Shoulders",
-  ARMS = "Arms",
-  LEGS = "Legs",
+  BACK = "back",
+  CHEST = "chest",
+  SHOULDERS = "shoulders",
+  ARMS = "arms",
+  LEGS = "legs",
 }
 
 export type BodyPartType =
